@@ -1,0 +1,45 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Font Face Declarations */
+@font-face {
+  font-family: 'Sporting Grotesque';
+  src: url('./assets/fonts/SportingGrotesque-Regular.otf') format('opentype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Sporting Grotesque';
+  src: url('./assets/fonts/SportingGrotesque-Bold.otf') format('opentype');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Global Base Styles */
+body {
+  @apply bg-light dark:bg-dark text-dark dark:text-light font-primary;
+}
+
+/* Remove arrows from number inputs */
+input[type='number']::-webkit-inner-spin-button,
+input[type='number']::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+input[type='number'] {
+  -moz-appearance: textfield;
+}
+
+/* Optional Utility Classes */
+/* .highlight-text {
+  @apply bg-dark text-light px-3 rounded-lg;
+}
+
+.cover-clip {
+  clip-path: polygon(50% 0%, 22% 100%, 72% 100%);
+} */
