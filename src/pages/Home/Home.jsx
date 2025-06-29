@@ -1,4 +1,5 @@
 import Banner from "../../components/Home/Banner";
+import Experience from "../../components/Home/Experience";
 import SkillSection from "../../components/Home/SkillSection";
 import Navbar from "../../components/Navbar";
 
@@ -11,8 +12,9 @@ const Home = () => {
           <Banner />
         </div>
       </div>
-      <div className="container">
+      <div className="">
         <SkillSection />
+        <Experience/>
       </div>
     </div>
   );
