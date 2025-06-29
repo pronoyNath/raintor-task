@@ -36,10 +36,10 @@ input[type='number'] {
 }
 
 /* Optional Utility Classes */
-/* .highlight-text {
+.highlight-text {
   @apply bg-dark text-light px-3 rounded-lg;
 }
 
 .cover-clip {
   clip-path: polygon(50% 0%, 22% 100%, 72% 100%);
-} */
+}

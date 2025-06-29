@@ -1,4 +1,4 @@
-const Button = ({ img, icon, text, isDark = false }) => {
+const Button = ({ img, icon, text, isDark = false, iconCls }) => {
   return (
     <button
       className={`py-2 pr-4 flex items-center gap-2 border ${
@@ -16,7 +16,7 @@ const Button = ({ img, icon, text, isDark = false }) => {
       )}
       {icon && (
         <div
-          className={`w-8 h-8 object-contain p-[6px] border ${
+          className={`${iconCls && iconCls} w-8 h-8 object-contain p-[6px] border ${
             isDark ? "border-light" : "border-dark"
           } rounded-full`}
         >

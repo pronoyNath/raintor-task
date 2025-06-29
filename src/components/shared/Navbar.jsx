@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import logo from "@/assets/images/logo.png";
-import Button from "../components/reusable/Button/Button";
+import Button from "../../components/reusable/Button/Button";
 import arrowIcon from "@/assets/icons/arrow.png";
 import { RiMenu3Line } from "react-icons/ri";
 import { FaXmark } from "react-icons/fa6";
@@ -33,8 +33,8 @@ const Navbar = () => {
       <img src={logo} className="max-w-28 lg:max-w-48" alt="logo" />
 
       <div
-        className={`fixed z-50 top-0 ${
-          openMenu ? "right-20" : "-right-[500px]"
+        className={`fixed z-50 top-0  ${
+          openMenu ? "right-0" : "-right-[500px]"
         } md:static flex flex-col md:flex-row items-center gap-10 bg-light md:bg-transparent px-10 pt-16 md:p-0 h-screen md:h-fit duration-300`}
       >
         <nav className="flex flex-col md:flex-row items-center gap-6 relative">
@@ -46,7 +46,7 @@ const Navbar = () => {
           {/* cross btn */}
           <button
             onClick={() => setOpenMenu(false)}
-            className="absolute -top-10 -right-32 text-2xl md:hidden"
+            className="absolute -top-10 -right-20 text-2xl md:hidden"
           >
             <FaXmark />
           </button>
@@ -63,7 +63,7 @@ const Navbar = () => {
       {openMenu && (
         <div
           onClick={() => setOpenMenu(false)}
-          className="fixed inset-0 bg-[#C5FFEE] z-40 md:hidden"
+          className="fixed inset-0 w-full z-40 md:hidden"
         ></div>
       )}
     </header>

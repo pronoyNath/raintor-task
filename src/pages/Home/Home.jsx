@@ -1,7 +1,10 @@
 import Banner from "../../components/Home/Banner";
+import Contact from "../../components/Home/Contact";
 import Experience from "../../components/Home/Experience";
 import SkillSection from "../../components/Home/SkillSection";
-import Navbar from "../../components/Navbar";
+import WorkProccess from "../../components/Home/WorkProcess";
+import Footer from "../../components/shared/Footer";
+import Navbar from "../../components/shared/Navbar";
 
 const Home = () => {
   return (
@@ -14,8 +17,11 @@ const Home = () => {
       </div>
       <div className="">
         <SkillSection />
-        <Experience/>
+        <Experience />
+        <WorkProccess />
+        <Contact/>
       </div>
+      <Footer/>
     </div>
   );
 };
