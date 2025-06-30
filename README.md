@@ -51,7 +51,7 @@ A modern, fully responsive **landing page** built with **React**, **Tailwind CSS
 ### Clone the repository
 
 ```bash
-git clone https://github.com/your-username/develop.me.git
+git clone https://github.com/pronoyNath/raintor-task.git
 cd develop.me
 npm install
 npm run dev
