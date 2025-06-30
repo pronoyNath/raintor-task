@@ -56,7 +56,7 @@ const Banner = () => {
   return (
     <div ref={bannerRef} className="container pt-12 pb-44">
       <div>
-        <div className="flex pb-4 md:pb-0 items-center font-bold text-3xl md:text-5xl lg:text-6xl w-[80%] lg:h-[55vh] leading-[60px] md:leading-[100px] lg:leading-[120px]  md:mx-[30px] justify-between">
+        <div className="flex pb-4 md:pb-0 items-center font-bold text-3xl md:text-4xl lg:text-6xl w-[80%] lg:h-[55vh] leading-[60px] md:leading-[100px] lg:leading-[120px]  md:mx-[30px] justify-between">
           <h1>
             Trusted{" "}
             <span className="staggerText bg-[#000000] text-white rounded-lg px-2">
