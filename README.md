@@ -32,7 +32,7 @@ A modern, fully responsive **landing page** built with **React**, **Tailwind CSS
 
 ## 📸 Preview
 
-![Develop.me Screenshot](https://developer-me-raintor.netlify.app/preview-image.png) <!-- Optional: Replace with actual image URL or remove -->
+![Develop.me Screenshot](./public/project.png) <!-- Optional: Replace with actual image URL or remove -->
 
 ---
 
