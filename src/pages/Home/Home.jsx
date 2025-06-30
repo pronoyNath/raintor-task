@@ -8,7 +8,7 @@ import Navbar from "../../components/shared/Navbar";
 
 const Home = () => {
   return (
-    <div className="">
+    <div className="overflow-hidden">
       <div className=" min-h-screen pt-12 md:pt-0 mx-auto bg-[url('/bannar.png')] bg-center bg-cover">
         <div className="container">
           <Navbar />

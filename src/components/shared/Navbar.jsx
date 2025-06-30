@@ -5,6 +5,8 @@ import arrowIcon from "@/assets/icons/arrow.png";
 import { RiMenu3Line } from "react-icons/ri";
 import { FaXmark } from "react-icons/fa6";
 import { Link } from "react-router-dom";
+import { useGSAP } from "@gsap/react";
+import gsap from "gsap";
 
 const Navbar = () => {
   const [openMenu, setOpenMenu] = useState(false);
@@ -27,19 +29,37 @@ const Navbar = () => {
     { id: 4, label: "Blog", href: "/" },
   ];
 
+
+  useGSAP(()=>{
+    gsap.from(".navLinks",{
+      duration: 0.9, 
+      opacity: 0, 
+      y: -20, 
+      stagger: 0.1,
+      ease: "back.in"
+    })
+    gsap.from(".btn",{
+      duration: 0.9, 
+      opacity: 0, 
+      x: 30, 
+      stagger: 0.1,
+      ease: "back.in"
+    })
+  })
+
   return (
     <header className="bg-transparent pb-8 pt-0 md:pt-8 px-7 flex justify-between items-center">
       {/* logo */}
-      <img src={logo} className="max-w-28 lg:max-w-48" alt="logo" />
+      <img src={logo} className="navLinks max-w-28 lg:max-w-48" alt="logo" />
 
       <div
         className={`fixed z-50 top-0  ${
           openMenu ? "right-0" : "-right-[500px]"
         } md:static flex flex-col md:flex-row items-center gap-10 bg-light md:bg-transparent px-10 pt-16 md:p-0 h-screen md:h-fit duration-300`}
       >
-        <nav className="flex flex-col md:flex-row items-center gap-6 relative">
+        <nav className=" flex flex-col md:flex-row items-center gap-6 relative">
           {navItems?.map((item) => (
-            <Link href={item?.href || "/"} key={item?.id}>
+            <Link className="navLinks" href={item?.href || "/"} key={item?.id}>
               {item?.label}
             </Link>
           ))}
@@ -51,7 +71,9 @@ const Navbar = () => {
             <FaXmark />
           </button>
         </nav>
+        <div className="btn">
         <Button img={arrowIcon} text={"Start Project"} />
+        </div>
       </div>
 
       {/* menu btn */}

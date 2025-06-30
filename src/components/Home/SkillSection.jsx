@@ -7,10 +7,16 @@ import "swiper/css";
 import "swiper/css/navigation";
 import arrowIcon from "../../assets/icons/arrow-light.png";
 import SkillCard from "./SkillCard";
+import { useGSAP } from "@gsap/react";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/all";
+
+gsap.registerPlugin(ScrollTrigger)
 
 const SkillSection = () => {
   const prevRef = useRef(null);
   const nextRef = useRef(null);
+  const sectionRef = useRef(null);
 
   const cards = [
     {
@@ -57,26 +63,65 @@ const SkillSection = () => {
     },
   ];
 
+  
+
+  useGSAP(() => {
+    // Register ScrollTrigger plugin
+    gsap.registerPlugin(ScrollTrigger);
+
+    // Stagger animation for text elements
+    gsap.from(".animationGSAP", {
+      y: 100, // Start from 100px below
+      opacity: 0,
+      duration: 1,
+      stagger: 0.15,
+      ease: "back.out(1.7)",
+      scrollTrigger: {
+        trigger: sectionRef.current,
+        start: "top 50%", 
+        end: "bottom 30%",
+        // markers: true,
+        scrub: 1,
+        toggleActions: "play none reverse none",
+      }
+    });
+
+    // Add a slight scale animation
+    gsap.from(".animationGSAP", {
+      scale: 0.95,
+      duration: 1.2,
+      stagger: 0.15,
+      ease: "power2.out",
+      scrollTrigger: {
+        trigger: sectionRef.current,
+        start: "top 50%",
+        toggleActions: "play none none none"
+      }
+    });
+
+  }, { scope: sectionRef });
   return (
-    <section className="container -mt-32">
+    <section ref={sectionRef}  className="container -mt-32">
       <div className="bg-dark text-light pt-10 lg:pt-32 px-6 lg:px-16 rounded-3xl relative z-30">
+        <div className="animationGSAP">
         <SectionTitle title={"Why Choose me"} isDark={true} />
+        </div>
 
         {/* Title & Arrows */}
         <div className="flex flex-col lg:flex-row justify-between items-start gap-6 flex-wrap relative">
-          <h2 className="text-xl md:text-5xl font-semibold max-w-md leading-[40px] md:leading-[70px]">
+          <h2 className="animationGSAP text-xl md:text-5xl font-semibold max-w-md leading-[40px] md:leading-[70px]">
             My Extensive <br /> List of Skills
           </h2>
 
           <div className="flex items-center gap-6">
-            <p className="h-fit max-w-md text-left lg:text-right leading-8 border-b border-b-light pb-5 border-opacity-40">
+            <p className="animationGSAP h-fit max-w-md text-left lg:text-right leading-8 border-b border-b-light pb-5 border-opacity-40">
               Building the worlds best marketing Your trusted partner for
               strategy, design, and dev.
             </p>
           </div>
 
           {/* Custom Navigation Buttons */}
-          <div className="absolute -bottom-16 lg:-bottom-6 right-0 flex gap-2 pt-1">
+          <div className="animationGSAP absolute -bottom-16 lg:-bottom-6 right-0 flex gap-2 pt-1">
             <button
               ref={prevRef}
               className="w-10 h-10 border border-light rounded-full flex items-center justify-center"
@@ -101,7 +146,7 @@ const SkillSection = () => {
         </div>
 
         {/* Swiper Slider */}
-        <div className="mt-24 lg:mt-16 relative -mx-2 px-2 overflow-hidden">
+        <div className=" mt-24 lg:mt-16 relative -mx-2 px-2 overflow-visible">
           <Swiper
             spaceBetween={20}
             slidesPerView={1.2}
